@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Overview</title>
+</head>
+<body>
+    <h1>Recipe Overview</h1>
+    <ul>
+        <li th:each="recipeName : ${recipeNames}">
+            <a th:href="@{/recipes/{name}(name=${recipeName})}" th:text="${recipeName}"></a>
+        </li>
+    </ul>
+       <!-- Create button -->
+<a th:href="@{/recipes/create}" class="btn btn-primary">Create Recipe</a>
+
+      <!-- Search button -->
+<a th:href="@{/recipes/search-page}" class="btn btn-primary">Search Recipe</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Recipes</title>
+</head>
+<body>
+    <h2>Search Recipes</h2>
+    <form action="#" th:action="@{/recipes/search(name=${name}, mealType=${mealType})}" method="get">
+
+        <label for="name">Recipe Name:</label>
+        <input type="text" id="name" name="name" th:value="${name}" placeholder="Enter recipe name"><br><br>
+        
+        <label for="mealType">Meal Type:</label>
+        <select id="mealType" name="mealType" th:value="${mealType}">
+            <option value="">-- Select meal type --</option>
+            <option value="BREAKFAST">Breakfast</option>
+            <option value="LUNCH">Lunch</option>
+            <option value="DINNER">Dinner</option>
+        </select><br><br>
+        
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

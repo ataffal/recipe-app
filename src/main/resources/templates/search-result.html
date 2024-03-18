@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Search Result</title>
+</head>
+<body>
+    <h1>Recipe Search Result</h1>
+    <ul>
+        <li th:each="recipe : ${listOfRecipes}">
+           <p><strong>Name:</strong> <span th:text="${recipe.name}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${recipe.description}"></span></p>
+    <p><strong>Cooking Time:</strong> <span th:text="${recipe.cookingTime}"></span> minutes</p>
+    <p><strong>Meal Type:</strong> <span th:text="${recipe.mealType}"></span></p>
+    
+    <!-- Display ingredients -->
+    <div th:if="${recipe.ingredients}">
+        <h3>Ingredients:</h3>
+        <ul>
+            <li th:each="ingredient : ${recipe.ingredients}">
+                <span th:text="${ingredient.name}"></span> - <span th:text="${ingredient.amount}"></span>
+            </li>
+        </ul>
+    </div>
+        </li>
+    </ul>
+</body>
+</html>

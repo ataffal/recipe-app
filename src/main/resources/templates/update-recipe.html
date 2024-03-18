@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Recipe</title>
+</head>
+<body>
+    <h2>Update Recipe</h2>
+    <form action="#" th:action="@{/recipes/edit/{name}(name=${recipeDTO.name})}" th:object="${recipeDTO}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" th:value="${recipeDTO.name}" required><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" th:field="*{description}" required></textarea><br><br>
+
+        <!-- <h3>Ingredients:</h3>
+       Ingredient input fields
+        <div>
+            <label for="ingredient1">Ingredient 1:</label>
+            <input type="text" id="ingredient1" th:field="*{ingredients[0].name}" placeholder="Ingredient name">
+            <input type="text" th:field="*{ingredients[0].amount}" placeholder="Amount">
+        </div>
+        <div>
+            <label for="ingredient2">Ingredient 2:</label>
+            <input type="text" id="ingredient2" th:field="*{ingredients[1].name}" placeholder="Ingredient name">
+            <input type="text" th:field="*{ingredients[1].amount}" placeholder="Amount">
+        </div> -->
+        
+        <label for="mealType">Meal Type:</label>
+        <select id="mealType" name="mealType" th:field="*{mealType}">
+            <option value="BREAKFAST">Breakfast</option>
+            <option value="LUNCH">Lunch</option>
+            <option value="DINNER">Dinner</option>
+        </select><br><br>
+        
+        <label for="cookingTime">CookingTime:</label>
+        <input type="text" id="cookingTime" name="cookingTime" th:field="*{cookingTime}" required><br><br>
+        
+        <button type="submit">Update Recipe</button>
+    </form>
+</body>
+</html>

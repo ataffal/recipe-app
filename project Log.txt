@@ -1,0 +1,23 @@
+15m - setting up the pom.xml and application.yaml
+25m - creating the init.sql along with the changelog.xml files
+1h05m- cearting the model,repository,service and controller
+20m - testing the RestController using Postman
+1h25m- creating the templates and modify the controller to setup the rendering
+
+
+I went for Thymeleaf over Angular, despite my lack of prior experience with it, because I found it to be more time-efficient for my project.
+
+Regarding the database, I chose H2, and I used Liquibase to handle schema management and create the necessary tables.
+
+For the update functionality, I decided not to allow users to update ingredients due to time constraints. This would have required extensive checks to determine which ingredients for a specific recipe had changed, retrieving the corresponding ingredient using its name, amount, and recipe ID, and then updating it.
+
+In both tables, I set the primary key to ID, which is automatically generated. Additionally, I made the name field in the recipe table unique to prevent duplicate recipe names. For the ingredients table, I initially considered creating a third table for the many-to-many relationship between recipes and ingredients. However, I ultimately decided to include the recipe ID as a foreign key in the ingredients table and make the combination of name, amount, and recipe ID unique.
+
+For the search functionality, I implemented a simple search using recipe name and meal type.
+
+I briefly considered implementing an advanced search using a specification class, similar to what I've done in my current job's project. However, I concluded that this approach would require a significant amount of time to implement, as it involves creating multiple classes to handle a structured filter format like <key><operator><value>.
+
+I didn't have the opportunity to implement unit tests due to time constraints. However, I thoroughly tested all the controllers using Postman when the application was using RestController. Although unit tests are essential for ensuring the reliability and stability of the application, I'm confident in the functionality based on the extensive testing performed.
+
+I hope that my development efforts for the app will yield positive results, and I eagerly anticipate receiving feedback from you
+
